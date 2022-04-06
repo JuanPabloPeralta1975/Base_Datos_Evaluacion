@@ -1,0 +1,157 @@
+CREATE DATABASE  IF NOT EXISTS `evaluacion_practica` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `evalucion_practica`;
+-- MySQL dump 10.13  Distrib 5.7.28, for Linux (x86_64)
+--
+-- Host: localhost    Database: evaluacion_practica
+-- ------------------------------------------------------
+-- Server version	5.7.28-0ubuntu0.18.04.4
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuario` (
+  `id` int (100),  NOT NULL, auto increment,
+  `nombre` varchar(95) DEFAULT NULL,
+  `email` varchar(55) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'Jimi Hendrix','jimi@mail.com'); (2,'Jimmy Page','jimmy@mail.com ');(3,'Kurt Cobain','kurt@mail.com');(4,'Robert Plant','robert@mail.com');(5,'Slash','slash@mail.com);(6,'Sting','sting@mail.com');(7,'Tom Yorke','tom@mail.com');(8,'Jonny Greenwood','jonny@mail.com');(9,'Eric Clapton','eric@mail.com); (10,'Angus Young','angus@mail.com);
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notas`
+--
+
+DROP TABLE IF EXISTS `notas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notas` (
+  `id` int(100) NOT NULL auto increment,
+  `titulo` varchar(85) DEFAULT NULL,
+   'fecha_creacion'  date DEFAULT NULL,
+   'fecha_modificacion' date DEFAULT NULL,
+   'descripcion' varchar(85) DEFAULT NULL,
+   'eliminada' varchar(10) DEFAULT NULL,
+   `usuario_id` int(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notas`
+--
+
+LOCK TABLES `notas` WRITE;
+/*!40000 ALTER TABLE `notas` DISABLE KEYS */;
+INSERT INTO `artistas` VALUES (1,'azul', '2020-02-02','2020-02-02','azulado','false',1),(2,'verde', '2020-02-02','2020-02-02','verdeado','false',2),(3,'rojo', '2020-02-02','2020-02-02','rojeado','false'.3),(4,'amarillo', '2020-02-02','2020-02-02','amarilleado','false',4), (5,'azul', '2020-02-02','2020-02-02','azulado','false',5),(6,'azul', '2020-02-02','2020-02-02','griseado','false',6),(7,'negro', '2020-02-02','2020-02-02','negreado','false',7),(8,'blanco', '2020-02-02','2020-02-02','blanqueado','false',8),(9,'naranja', '2020-02-02','2020-02-02','naranjeado','false',9),(10,'plata', '2020-02-02','2020-02-02','plateadoado','false',10);
+/*!40000 ALTER TABLE `artistas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `notas_categoria`
+--
+
+DROP TABLE IF EXISTS `notas_categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `notas_categoria' (
+  `id` int(100) NOT NULL,
+  `notas_id` int(100) DEFAULT NULL,
+  `categoria_id` int(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `notas_categoria`
+--
+
+LOCK TABLES `canciones` WRITE;
+/*!40000 ALTER TABLE `canciones` DISABLE KEYS */;
+INSERT INTO `notas_categoria` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,7,7),(8,8,8),(9,9,9),(10,10,10);
+/*!40000 ALTER TABLE `canciones` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categoria`
+--
+
+DROP TABLE IF EXISTS `categoria`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categoria` (
+  `id` int(100) DEFAULT NULL,
+  `nombre-categoria' int(100) DEFAULT NULL, 
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categoria`
+--
+
+LOCK TABLES `categoria` WRITE;
+/*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria ` VALUES (1,'bueno'), (2,'bueno'),(3,'bueno'),(4,'bueno'),(5,'bueno'),(6,'bueno'),(7,'bueno'),(8,'bueno'),(9,'bueno'),(10,'bueno');
+/*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gestion`
+--
+
+DROP TABLE IF EXISTS `gestion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `gestion` (
+  `id` int(100) NOT NULL,
+  `nombre_gestion` varchar(9) DEFAULT NULL,
+  `usuario_id` int(100) DEFAULT NULL,
+  `notas_id` int(100) DEFAULT NULL,	
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gestion`
+--
+
+LOCK TABLES `gestion` WRITE;
+/*!40000 ALTER TABLE `gestion` DISABLE KEYS */;
+INSERT INTO `gestion` VALUES (1,'creada',1,1),(2,'creada',2,2),(3,'creada',3,3),(4,'creada',4,4),(5,'creada',5,5),(6,'creada',6,6),(7,'creada',7,7),(8,'creada',8,8),(9,'creada',9,9),(10,'creada',10,10);
+/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2022-04-06 17:43:45
